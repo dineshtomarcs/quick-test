@@ -1,0 +1,26 @@
+User-agent: *
+Disallow: /dashboard/
+Disallow: /reset-password/
+Disallow: /profile/update-profile/
+Disallow: /users/add/
+Disallow: /users/add-multiple/
+Disallow: /users/edit/:id/
+Disallow: /create-project/
+Disallow: /edit-project/:pid/
+Disallow: /projects/:pid/:subURL/
+Disallow: /projects/:pid/add-milestone/
+Disallow: /projects/:pid/edit-milestone/:id/
+Disallow: /projects/:pid/milestone/:id/
+Disallow: /projects/:pid/create-testcase/
+Disallow: /projects/:pid/edit-testcase/:id/
+Disallow: /projects/:pid/testcase/:id/
+Disallow: /projects/:pid/edit-multiple-testcases/
+Disallow: /projects/:pid/testrun/:id/:subURL/
+Disallow: /projects/:pid/create-testrun/
+Disallow: /projects/:pid/edit-testrun/:id/
+Disallow: /projects/:pid/todo/
+Disallow: /settings/users/
+Disallow: /settings/integrations/
+Disallow: /profile/change-password/
+
+Sitemap: https://test.quicklabs.in/sitemap.xml

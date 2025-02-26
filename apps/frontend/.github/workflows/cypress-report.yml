@@ -1,0 +1,49 @@
+name: Cypress Report
+
+on:
+  pull_request:
+    # By default - types: [opened, reopened, synchronize]
+    branches: 
+      - staging
+    
+jobs:
+  Run-E2E-Tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      # Install NPM dependencies, cache them correctly
+      - name: Install dependencies
+        uses: cypress-io/github-action@v2
+        with:
+          runTests: false
+
+      - name: Build
+        run: REACT_APP_API_URL=$REACT_APP_API_URL npm run build
+        env: 
+          REACT_APP_API_URL: ${{ secrets.API_URL }}
+      
+      - name: Cypress Info
+        run: npx cypress info
+
+      - name: Start Server & Run Tests
+        uses: cypress-io/github-action@v2
+        with:
+          install: false
+          browser: chrome
+          start: npm run start
+          wait-on: 'http://localhost:3000'
+          wait-on-timeout: 120
+          record: true
+        env:
+          CYPRESS_api_baseUrl: ${{ secrets.API_URL }}
+          CYPRESS_PROJECT_ID: ${{ secrets.CYPRESS_PROJECT_ID }}
+          # pass the Dashboard record key as an environment variable
+          CYPRESS_RECORD_KEY: ${{ secrets.CYPRESS_RECORD_KEY }}
+          # pass GitHub token to allow accurately detecting a build vs a re-run build
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # https://github.com/cypress-io/github-action/issues/124#issuecomment-653180260
+          COMMIT_INFO_MESSAGE: ${{ github.event.pull_request.title }}
+          COMMIT_INFO_SHA: ${{ github.event.pull_request.head.sha }}

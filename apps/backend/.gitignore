@@ -1,0 +1,21 @@
+/dist
+/node_modules
+/local-emails
+.env
+.env.development
+.eslintrc.js
+.env.testing
+.env.production
+.env.qa
+launch.json
+.data
+coverage
+.cache
+newrelic_agent.log
+
+**/.DS_Store
+
+# remove lock files
+*.lockb
+*.lock
+package-lock.json

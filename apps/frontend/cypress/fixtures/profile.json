@@ -1,0 +1,17 @@
+{
+  "valid": {
+    "firstName": ["Jane", "John"],
+    "lastName": "Doe",
+    "org": ["Apple Inc", "Crownstack"],
+    "address_line_1": "4215 Oak Ridge Drive",
+    "city": "Rolla",
+    "state": "Missouri",
+    "postalCode": "65401",
+    "country": "United States Of America"
+  },
+  "invalid": {
+    "firstName": "JaneJaneJaneJaneJaneJaneJaneJaney",
+    "lastName": "Doe123",
+    "org": "$AAPL"
+  }
+}

@@ -1,0 +1,112 @@
+{
+  "name": "quick-test-frontend",
+  "version": "3.5.0-beta",
+  "private": true,
+  "sourceRoot": "apps/quick-test-frontend",
+  "projectType": "application",
+  "taget": {},
+  "dependencies": {},
+  "devDependencies": {},
+  "scripts": {
+    "dev": "set BROWSER=none && set PORT=3000 && env-cmd -f .env react-scripts start",
+    "build": "react-scripts build && npm run sitemap",
+    "sitemap": "node src/sitemap-generator.js",
+    "release": "npm run build",
+    "serve": "serve -s build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "test-run": "cypress run",
+    "test-open": "cypress open",
+    "sitemap:dev": "env-cmd -f .env.development node src/sitemap-generator.js",
+    "build:dev": "env-cmd -f .env.development react-scripts build && npm run sitemap:dev",
+    "sitemap:qa": "env-cmd -f .env.qa node src/sitemap-generator.js",
+    "build:qa": "env-cmd -f .env.qa react-scripts build && npm run sitemap:qa",
+    "sitemap:staging": "env-cmd -f .env.staging node src/sitemap-generator.js",
+    "build:staging": "env-cmd -f .env.staging react-scripts build && npm run sitemap:staging",
+    "format": "prettier --write \"src/**/*.tsx\"",
+    "lint": "eslint \"{src,apps,libs,test}/**/*.tsx\" --fix",
+    "lint:fix": "eslint --fix --ext=.jsx,.js,.tsx,.ts  ."
+  },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.{js,ts,tsx}": "eslint --fix",
+    "*.{js,ts,tsx,md,css}": "prettier --write"
+  },
+  "browserslist": {
+    "production": [
+      ">0.2%",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "reactSnap": {
+    "puppeteerArgs": [
+      "--no-sandbox",
+      "--disable-setuid-sandbox"
+    ]
+  },
+  "comments": {
+    "dependencies": {
+      "@headlessui/react": "UI components for React, designed to integrate beautifully with Tailwind CSS",
+      "@heroicons/react": "free MIT-licensed high-quality SVG icons",
+      "@tippyjs/react": "complete tooltip, popover, dropdown, and menu solution for the web, powered by Popper",
+      "axios": "promise based HTTP client for the browser and node.js",
+      "chart.js": "simple HTML5 charts using the canvas element",
+      "dayjs": "date library for parsing, validating, manipulating, and formatting dates",
+      "dompurify": "XSS sanitizer for HTML",
+      "downloadjs": "file downloading using client-side javascript",
+      "env-cmd": "executes a command using the environment variables in an env file",
+      "formik": "form library for React",
+      "marked": "a low-level, lightweight markdown compiler for parsing markdown",
+      "react": "library for creating user interfaces",
+      "react-chartjs-2": "react components for chart.js",
+      "react-csv": "react csv downloader",
+      "react-datepicker": "react component for choosing date and date range",
+      "react-dom": "react package for working with the dom",
+      "react-drag-listview": "drag list view and table view component for react",
+      "react-router-dom": "bindings for using React Router in web applications",
+      "react-scripts": "scripts and configuration used by Create React App",
+      "react-spinners": "collection of loading spinners with React.js",
+      "react-textarea-autosize": "textarea component for react which grows with content",
+      "react-toastify": "allows you to add notifications",
+      "yup": "simple object schema validation"
+    },
+    "devDependencies": {
+      "@tailwindcss/forms": "resets basic form styles making form elements easy to override with utilities",
+      "@tailwindcss/typography": "plugin that provides a set of prose classes you can use to add beautiful typographic defaults to any vanilla HTML you don't control, like HTML rendered from Markdown, or pulled from a CMS",
+      "@types/dompurify": "type definitions for DOM Purify ",
+      "@types/downloadjs": "type definitions for downloadjs",
+      "@types/marked": "type definitions for marked",
+      "@types/node": "type definitions for node",
+      "@types/react": "type definitions for react",
+      "@types/react-dom": "type definitions for react-dom",
+      "@types/stripejs": "type definitions for stripejs",
+      "@typescript-eslint/eslint-plugin": "eslint plugin which provides lint rules for TypeScript codebases.",
+      "@typescript-eslint/parser": " eslint parser which leverages TypeScript ESTree to allow for eslint to lint TypeScript source code",
+      "autoprefixer": "PostCSS plugin to parse CSS and add vendor prefixes to CSS rules using values from Can I Use, recommended by Google and used in Twitter and Alibaba",
+      "cypress": "end-to-end testing tool",
+      "eslint": "static code analysis tool",
+      "eslint-config-prettier": "turns off all rules that are unnecessary or might conflict with Prettier",
+      "eslint-plugin-react": "react specific linting rules for eslint",
+      "husky": "provides git hooks: helps improving and defining commit",
+      "lint-staged": "run linters against staged git files",
+      "postcss": "parse CSS and add vendor prefixes to CSS rules using values from Can I Use",
+      "prettier": "an opinionated code formatter",
+      "serve": "static file serving and directory listing",
+      "tailwindcss": "utility-first CSS framework for rapidly building custom user interfaces.",
+      "typescript": "typescript library"
+    }
+  },
+  "sideEffects": [
+    "./src/pages/i18n.js"
+  ]
+}

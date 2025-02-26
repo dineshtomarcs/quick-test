@@ -1,0 +1,9 @@
+node_modules
+
+# Exclude package.json and lock file
+package.json
+yarn.lock
+
+# Exclude github workflow
+.github
+

@@ -1,0 +1,14 @@
+{
+    "language": "ts",
+    "collection": "@nestjs/schematics",
+    "sourceRoot": "src",
+    "compilerOptions": {
+        "plugins": ["@nestjs/swagger/plugin"],
+        "builder": "swc",
+        "assets": [
+            { "include": "email-templates/**/*.hbs"},
+            { "include": "i18n/**/*", "watchAssets": true }
+            ],
+        "watchAssets": true
+    }
+}

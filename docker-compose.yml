@@ -1,0 +1,16 @@
+services:
+  backend:
+    container_name: quick-test-backend
+    build:
+      context: ./
+      dockerfile: ./apps/backend/Dockerfile
+    ports:
+      - 3001:3001
+    env_file:
+      - path: ./apps/backend/.env
+    networks:
+      - quick-test
+    restart: on-failure
+
+networks:
+  quick-test:

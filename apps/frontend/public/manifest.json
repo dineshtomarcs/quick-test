@@ -1,0 +1,36 @@
+{
+  "name": "QuickTest",
+  "short_name": "QuickTest",
+  "theme_color": "#3a1ae3",
+  "background_color": "#eae1da",
+  "display": "standalone",
+  "scope": "/",
+  "start_url": "/",
+  "description": "A complete web-based test case management solution to efficiently manage, track, and organize your software testing efforts.",
+  "icons": [
+    {
+      "src": "assets/icon-192x192.svg",
+      "sizes": "192x192",
+      "type": "image/png",
+      "purpose": "any maskable"
+  },
+  {
+      "src": "assets/icon-256x256.svg",
+      "sizes": "256x256",
+      "type": "image/png",
+      "purpose": "any maskable"
+  },
+  {
+      "src": "assets/icon-384x384.svg",
+      "sizes": "384x384",
+      "type": "image/png",
+      "purpose": "any maskable"
+  },
+  {
+      "src": "assets/icon-512x512.svg",
+      "sizes": "512x512",
+      "type": "image/png",
+      "purpose": "any maskable"
+  }
+  ]
+}

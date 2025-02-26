@@ -1,0 +1,7 @@
+node_modules
+converage
+.git
+.tmp
+.vscode
+.github
+dist

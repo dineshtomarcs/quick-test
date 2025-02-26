@@ -1,0 +1,8 @@
+export default class Constants {
+  static AWS_S3_SIGNED_URL_TESTCASE_EXPIRES = 120;
+  static AWS_S3_SIGNED_URL_INVOICE_EXPIRES = 86400;
+  static AWS_S3_BUCKET_ALLOWED_HEADERS = "Authorization";
+  static AWS_S3_BUCKET_ALLOWED_METHOD1 = "GET";
+  static AWS_S3_BUCKET_ALLOWED_ORIGINS = "*";
+  static AWS_S3_BUCKET_MAX_AGE_SECONDS = 3000;
+}

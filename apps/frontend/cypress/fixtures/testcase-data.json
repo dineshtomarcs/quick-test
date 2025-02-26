@@ -1,0 +1,28 @@
+{
+  "unassignedTestcase": {
+    "title": "This testcase is unassigned",
+    "preconditions": "testcase page should open",
+    "steps": "fill the form with necessary details",
+    "expectedResults": "there shouldn't be any error"
+  },
+  "assignedTestcase": {
+    "title": "This testcase is assigned",
+    "preconditions": "testcase page should open",
+    "steps": "fill the form with necessary details",
+    "expectedResults": "there shouldn't be any error"
+  },
+  "multipleTestcases": [
+    {
+      "title": "This testcase #1 in series of assigned testcases",
+      "preconditions": "testcase page should open",
+      "steps": "fill the form with necessary details",
+      "expectedResults": "there shouldn't be any error"
+    },
+    {
+      "title": "This testcase #2 in series of assigned testcases",
+      "preconditions": "testcase page should open",
+      "steps": "fill the form with necessary details",
+      "expectedResults": "there shouldn't be any error"
+    }
+  ]
+}

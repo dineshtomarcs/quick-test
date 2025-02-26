@@ -1,0 +1,24 @@
+name: TestBox Backend CI
+on:
+  workflow_dispatch:  
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v1
+      - name: Delpoying backend changes on Dev server(testbox)
+        env:
+          Host: ${{ secrets.DEV_SERVER_IP }}
+          User: ${{ secrets.DEV_SERVER_USER }}
+          allowSSHFlag: "-o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o PreferredAuthentications=publickey"
+        run: |
+          ls -lrt
+          echo "${{ secrets.DEV_SERVER_PEM }}" > dev_key.pem
+          ls -lrt
+          echo "Staring the execution of stage.sh script....."
+          chmod 400 dev_key.pem
+          echo "Creating/Removing stage folder."
+          ssh -i "dev_key.pem" $allowSSHFlag $User@$Host "ls -lrt"
+          ssh -i "dev_key.pem" $allowSSHFlag $User@$Host "cd dev/ssh/testbox-backend/;git checkout dev; git pull origin dev" 
+          ssh -i "dev_key.pem" $allowSSHFlag $User@$Host "cd dev/ssh/testbox-backend/; bun install; pm2 restart dev-testbox" 

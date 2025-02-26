@@ -1,0 +1,25 @@
+name: TestBox CI
+on:
+  workflow_dispatch:
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - uses: oven-sh/setup-bun@v1
+      - name: Deploying QA changes on to QA server
+        env:
+          Host: ${{ secrets.DEV_SERVER_IP }}
+          User: ${{ secrets.DEV_SERVER_USER }}
+          allowSSHFlag:
+            "-o StrictHostKeyChecking=no -o UserKnownHostsFile=/dev/null -o
+            PreferredAuthentications=publickey"
+        run: |
+          ls -lrt
+          echo "${{ secrets.DEV_SERVER_PEM }}" > dev_key.pem
+          ls -lrt
+          echo "Staring the execution of stage.sh script....."
+          chmod 400 dev_key.pem
+          echo "Creating/Removing stage folder."
+          ssh -i "dev_key.pem" $allowSSHFlag $User@$Host "ls -lrt"
+          ssh -i "dev_key.pem" $allowSSHFlag $User@$Host "cd /var/www/html/qa/testbox/testbox/; git checkout qa; git pull origin qa; bun install; pm2 restart 11"
